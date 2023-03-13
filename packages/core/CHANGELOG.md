@@ -1,4 +1,4 @@
-# @typescript-library-template/core
+# @better-enum/core
 
 ## 1.0.0
 

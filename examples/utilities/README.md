@@ -1,1 +1,1 @@
-# @typescript-library-template/utilities example
+# @better-enum/utilities example

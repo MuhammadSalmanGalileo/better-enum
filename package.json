@@ -1,6 +1,6 @@
 {
-  "name": "typescript-library-template",
-  "description": "",
+  "name": "better-enum",
+  "description": "rust inspired enum",
   "private": true,
   "scripts": {
     "postinstall": "preconstruct dev",

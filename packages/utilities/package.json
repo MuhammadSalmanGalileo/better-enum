@@ -1,10 +1,10 @@
 {
-  "name": "@typescript-library-template/utilities",
+  "name": "@better-enum/utilities",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/typescript-library-template-utilities.cjs.js",
-  "module": "dist/typescript-library-template-utilities.esm.js",
-  "types": "dist/typescript-library-template-utilities.cjs.d.ts",
+  "description": "rust inspired enum",
+  "main": "dist/better-enum-utilities.cjs.js",
+  "module": "dist/better-enum-utilities.esm.js",
+  "types": "dist/better-enum-utilities.cjs.d.ts",
   "files": [
     "src",
     "dist",
@@ -16,14 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/.../...git"
+    "url": "git+https://github.com/MuhammadSalmanGalileo/better-enum.git"
   },
-  "author": "",
+  "author": "Muhammad Salman Galileo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/.../.../issues"
+    "url": "https://github.com/MuhammadSalmanGalileo/better-enum/issues"
   },
-  "homepage": "https://github.com/.../...",
+  "homepage": "https://github.com/MuhammadSalmanGalileo/better-enum",
   "dependencies": {
     "@babel/runtime": "7.20.7"
   },

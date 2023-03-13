@@ -1,4 +1,4 @@
 {
-  "main": "dist/typescript-library-template-core-module.cjs.js",
-  "module": "dist/typescript-library-template-core-module.esm.js"
+  "main": "dist/better-enum-core-module.cjs.js",
+  "module": "dist/better-enum-core-module.esm.js"
 }

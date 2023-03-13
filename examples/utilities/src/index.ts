@@ -1,3 +1,3 @@
-import { print } from '@typescript-library-template/utilities';
+import { print } from "@better-enum/utilities";
 
-print('utilities');
+print("utilities");

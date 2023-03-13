@@ -1,4 +1,4 @@
-# @typescript-library-template/utilities
+# @better-enum/utilities
 
 ## 1.0.0
 

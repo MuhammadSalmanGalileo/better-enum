@@ -1,1 +1,1 @@
-# @typescript-library-template/core example
+# @better-enum/core example

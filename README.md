@@ -1,4 +1,4 @@
-# typescript-library-template
+# better-enum
 
 This is a template repository for developing libraries for Browser/Node.js with TypeScript.
 
@@ -21,7 +21,7 @@ Rewrite the following items in package.json in each folder as appropriate.
 Next, rewrite the signature and number of years in the LICENSE file.
 
 ```
-Copyright (c) 20xx your_name
+Copyright (c) 2023 Muhammad Salman Galileo
 ```
 
 ### Step3
