@@ -32,8 +32,7 @@
   },
   "homepage": "https://github.com/MuhammadSalmanGalileo/better-enum",
   "dependencies": {
-    "@babel/runtime": "7.20.7",
-    "@better-enum/utilities": "1.0.0"
+    "@babel/runtime": "7.20.7"
   },
   "devDependencies": {
     "typescript": "4.9.4"
