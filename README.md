@@ -1,74 +1,95 @@
 # better-enum
 
-This is a template repository for developing libraries for Browser/Node.js with TypeScript.
+This library used to handle enum with payload that inspired by enum in rust;
 
-## How to publish to npm
-
-### Step 1
-
-Rewrite the following items in package.json in each folder as appropriate.
-
-* name
-* description
-* keywords
-* repository
-* author
-* bugs
-* homepage
-
-### Step 2
-
-Next, rewrite the signature and number of years in the LICENSE file.
+# Installation
 
 ```
-Copyright (c) 2023 Muhammad Salman Galileo
+npm install better-enum
 ```
 
-### Step3
+# Usage
 
-Rewrite the [repo option](./.changeset/config.json) in Changeset.  
+to use this library you need to create the enum
 
-```
-"changelog": [
-  "@changesets/changelog-github",
-  { "repo": "your_name/repository_name" }
-],
-```
-
-Also, do not forget to rewrite the title of CHANGELOG.md.
-
-### Step4
-
-Implement a great library under the [packages](./packages) folder.  
-Be sure to provide proper test code so that users of the library can feel comfortable.
-
-Execute the following commands to confirm that the build and test pass successfully.  
-Be careful not to publish libraries that do not work properly.
-
-```bash
-$ yarn build
-$ yarn test
-```
-
-### Step5
-
-Write a description of the library in README.md.
-
-It is also a good idea to create a simple project under the [examples](./examples) directory so that you can check the operation by simply cloning the repository.  
-It is important to keep the project as simple as possible, as complex projects take time to understand.
-
-### Step6
-
-To publish the library to NPM, add the NPM access key with the key `NPM_TOKEN` to the [repository secret](../../settings/secrets/actions).  
-This will automatically publish the library to NPM when the release workflow is executed.
-
-### Step7
-
-The following command can be used to create a patch to update the library version.
-
-```bash
-$ yarn changeset
+```typescript
+import { betterEnumFactory, InferEnum, CompleteBetterEnum } from "better-enum"
+const FirstEnum = betterEnumFactory<[
+  {
+    state: '1';
+    a: string;
+  },
+  {
+    state: '2';
+    b: string;
+  },
+  {
+    state: 1;
+    a: number;
+  },
+  {
+    state: 2;
+    b: number;
+  },
+]>();
+type FirstEnumType = InferEnum<typeof FirstEnum>;
 ```
 
-When the patch is committed to the main branch, CI will run and create a PR for the release.  
-Then, simply merge the PR for release and the library will be automatically published to NPM.
+enum created with state `"1" | "2" | 1 | 2` with payload `{ a: string } | { b: string } | { a: number } | { b: number }` and to use the enum you can create the value like this
+
+```typescript
+const result = FirstEnum("1", { a: "one" });
+```
+
+without type on the variable it still remember the state that used and can only be checked with `"1"` as possible state. to make it general it need the type that infered from `FirstEnum` with `InferEnum<typeof FirstEnum>` to be like this.
+
+```typescript
+const result: FirstEnumType = FirstEnum("1", { a: "one" });
+```
+
+to handle the enum, you can use `case` method on result
+
+```typescript
+result
+  .case('1', (p) => {
+    aString = p.a;
+  })
+  ?.case('2', (p) => {
+    bString = p.b;
+  })
+  ?.case(1, (p) => {
+    aNumber = p.a;
+  })
+  ?.case(2, (p) => {
+    bNumber = p.b;
+  }) satisfies CompleteBetterEnum;
+```
+
+this will handle the result for all possible state. it suggested to use utility type `CompleteBetterEnum` to make sure all case has been handled. if you want to handle only some case and handle default for the rest you can use undefined key.
+
+```typescript
+result
+  .case('2', () => {
+    a = 'K2';
+  })
+  ?.case(undefined, (_, k) => {
+    switch (k) {
+      case '1':
+        a = 'K1';
+        break;
+      default:
+        expect(k).toBe('1');
+    }
+  }) satisfies CompleteBetterEnum;
+```
+
+or if you did not need the payload, you can use logical and
+
+```
+result
+  .case('2', () => {
+    a = 'K2';
+  }) && (a = 'TheRest')
+```
+
+it can be done because `case` can return `BetterEnum<>` instance or undefined. it will return undefined if state in case match.
