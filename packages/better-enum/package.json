@@ -1,10 +1,10 @@
 {
-  "name": "@better-enum/core",
+  "name": "@salmangalileo/better-enum",
   "version": "1.0.0",
   "description": "rust inspired enum",
-  "main": "dist/better-enum-core.cjs.js",
-  "module": "dist/better-enum-core.esm.js",
-  "types": "dist/better-enum-core.cjs.d.ts",
+  "main": "dist/salmangalileo-better-enum.cjs.js",
+  "module": "dist/salmangalileo-better-enum.esm.js",
+  "types": "dist/salmangalileo-better-enum.cjs.d.ts",
   "preconstruct": {
     "entrypoints": [
       "index.ts",

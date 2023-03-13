@@ -5,7 +5,7 @@ This library used to handle enum with payload that inspired by enum in rust;
 # Installation
 
 ```
-npm install better-enum
+npm install @salmangalileo/better-enum
 ```
 
 # Usage

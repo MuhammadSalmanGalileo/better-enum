@@ -1,0 +1,1 @@
+# @salmangalileo/better-enum

@@ -1,0 +1,4 @@
+{
+  "main": "dist/salmangalileo-better-enum-module.cjs.js",
+  "module": "dist/salmangalileo-better-enum-module.esm.js"
+}

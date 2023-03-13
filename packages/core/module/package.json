@@ -1,4 +1,0 @@
-{
-  "main": "dist/better-enum-core-module.cjs.js",
-  "module": "dist/better-enum-core-module.esm.js"
-}

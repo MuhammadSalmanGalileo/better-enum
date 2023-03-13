@@ -2,7 +2,7 @@ import {
   betterEnumFactory,
   CompleteBetterEnum,
   InferEnum,
-} from "@better-enum/core";
+} from "@salmangalileo/better-enum";
 
 const firstEnum = betterEnumFactory<
   [

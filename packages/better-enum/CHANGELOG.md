@@ -1,4 +1,4 @@
-# @better-enum/core
+# @salmangalileo/better-enum
 
 ## 1.0.0
 
