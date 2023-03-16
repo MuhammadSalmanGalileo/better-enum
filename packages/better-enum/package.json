@@ -1,6 +1,6 @@
 {
   "name": "@salmangalileo/better-enum",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "rust inspired enum",
   "main": "dist/salmangalileo-better-enum.cjs.js",
   "module": "dist/salmangalileo-better-enum.esm.js",

@@ -13,20 +13,28 @@ describe('Better Enum', () => {
     const TestEnum = betterEnumFactory<
     [
       {
-        state: '1';
-        a: string;
+        key: '1';
+        data: {
+          a: string;
+        };
       },
       {
-        state: '2';
-        b: string;
+        key: '2';
+        data: {
+          b: string;
+        };
       },
       {
-        state: 1;
-        a: number;
+        key: 1;
+        data: {
+          a: number;
+        };
       },
       {
-        state: 2;
-        b: number;
+        key: 2;
+        data: {
+          b: number;
+        };
       },
     ]
     >();
@@ -42,16 +50,16 @@ describe('Better Enum', () => {
     let bNumber = 0;
     for (const result of results) {
       result
-        .case('1', (p) => {
+        .case('1', ({ data: p }) => {
           aString = p.a;
         })
-        ?.case('2', (p) => {
+        ?.case('2', ({ data: p }) => {
           bString = p.b;
         })
-        ?.case(1, (p) => {
+        ?.case(1, ({ data: p }) => {
           aNumber = p.a;
         })
-        ?.case(2, (p) => {
+        ?.case(2, ({ data: p }) => {
           bNumber = p.b;
         }) satisfies CompleteBetterEnum;
     }
@@ -65,20 +73,28 @@ describe('Better Enum', () => {
     const TestEnum = betterEnumFactory<
     [
       {
-        state: '1';
-        a: string;
+        key: '1';
+        data: {
+          a: string;
+        };
       },
       {
-        state: '2';
-        b: string;
+        key: '2';
+        data: {
+          b: string;
+        };
       },
       {
-        state: 1;
-        a: number;
+        key: 1;
+        data: {
+          a: number;
+        };
       },
       {
-        state: 2;
-        b: number;
+        key: 2;
+        data: {
+          b: number;
+        };
       },
     ]
     >();
@@ -89,13 +105,11 @@ describe('Better Enum', () => {
       .case('2', () => {
         a = 'K2';
       })
-      ?.case(undefined, (_, k) => {
+      ?.case(undefined, ({ key: k }) => {
         switch (k) {
           case '1':
             a = 'K1';
             break;
-          default:
-            expect(k).toBe('1');
         }
       });
     expect(a).toBe('K1');
@@ -105,20 +119,28 @@ describe('Better Enum', () => {
     const TestEnum = betterEnumFactory<
     [
       {
-        state: '1';
-        a: string;
+        key: '1';
+        data: {
+          a: string;
+        };
       },
       {
-        state: '2';
-        b: string;
+        key: '2';
+        data: {
+          b: string;
+        };
       },
       {
-        state: 1;
-        a: number;
+        key: 1;
+        data: {
+          a: number;
+        };
       },
       {
-        state: 2;
-        b: number;
+        key: 2;
+        data: {
+          b: number;
+        };
       },
     ]
     >();
