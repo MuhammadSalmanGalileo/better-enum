@@ -16,20 +16,28 @@ to use this library you need to create the enum
 import { betterEnumFactory, InferEnum, CompleteBetterEnum } from "better-enum"
 const FirstEnum = betterEnumFactory<[
   {
-    state: '1';
-    a: string;
+    key: '1';
+    data: {
+      a: string;
+    }
   },
   {
-    state: '2';
-    b: string;
+    key: '2';
+    data: {
+      b: string;
+    }
   },
   {
-    state: 1;
-    a: number;
+    key: 1;
+    data: {
+      a: number;
+    }
   },
   {
-    state: 2;
-    b: number;
+    key: 2;
+    data: {
+      b: number;
+    }
   },
 ]>();
 type FirstEnumType = InferEnum<typeof FirstEnum>;
@@ -51,17 +59,17 @@ to handle the enum, you can use `case` method on result
 
 ```typescript
 result
-  .case('1', (p) => {
-    aString = p.a;
+  .case('1', ({data}) => {
+    aString = data.a;
   })
-  ?.case('2', (p) => {
-    bString = p.b;
+  ?.case('2', ({data}) => {
+    bString = data.b;
   })
-  ?.case(1, (p) => {
-    aNumber = p.a;
+  ?.case(1, ({data}) => {
+    aNumber = data.a;
   })
-  ?.case(2, (p) => {
-    bNumber = p.b;
+  ?.case(2, ({data}) => {
+    bNumber = data.b;
   }) satisfies CompleteBetterEnum;
 ```
 
@@ -72,13 +80,13 @@ result
   .case('2', () => {
     a = 'K2';
   })
-  ?.case(undefined, (_, k) => {
-    switch (k) {
+  ?.case(undefined, ({key}) => {
+    switch (key) {
       case '1':
         a = 'K1';
         break;
       default:
-        expect(k).toBe('1');
+        expect(key).toBe('1');
     }
   }) satisfies CompleteBetterEnum;
 ```
